@@ -1,0 +1,100 @@
+[
+  {
+    "id": "classroom",
+    "name": "三年二班教室",
+    "subtitle": "黑板上的值日表还没擦干净",
+    "bounds": {"width": 960, "height": 540},
+    "obstacles": [
+      {"id":"blackboard","x":260,"y":34,"width":440,"height":70,"label":"黑板"},
+      {"id":"teacher-desk","x":405,"y":132,"width":150,"height":50,"label":"讲台"},
+      {"id":"desk-a","x":180,"y":210,"width":120,"height":48,"label":"课桌"},
+      {"id":"desk-b","x":360,"y":210,"width":120,"height":48,"label":"课桌"},
+      {"id":"desk-c","x":540,"y":210,"width":120,"height":48,"label":"课桌"},
+      {"id":"desk-d","x":720,"y":210,"width":120,"height":48,"label":"课桌"},
+      {"id":"desk-e","x":270,"y":320,"width":120,"height":48,"label":"课桌"},
+      {"id":"desk-f","x":450,"y":320,"width":120,"height":48,"label":"课桌"},
+      {"id":"desk-g","x":630,"y":320,"width":120,"height":48,"label":"课桌"},
+      {"id":"window-wall","x":30,"y":30,"width":30,"height":220,"label":"窗户"}
+    ],
+    "props": [
+      {"id":"chalk-box","kind":"chalk","label":"粉笔盒","x":620,"y":145,"width":32,"height":24,"solid":false,"actionId":"throw_chalk"},
+      {"id":"paper-stack","kind":"paper","label":"纸条","x":700,"y":145,"width":32,"height":24,"solid":false,"actionId":"pass_note"},
+      {"id":"back-door","kind":"door","label":"后门","x":885,"y":116,"width":42,"height":88,"solid":false,"actionId":"leave_classroom"},
+      {"id":"window-seat","kind":"window","label":"后窗","x":55,"y":330,"width":40,"height":80,"solid":true,"actionId":"watch_window"}
+    ],
+    "npcs": [
+      {"npcId":"teacher","name":"班主任老周","role":"班主任老师","x":480,"y":112,"emotion":"focused","schedule":{"早自习":"classroom","上午课":"classroom","眼保健操":"classroom","午休":"away","下午课":"classroom","放学后":"away","晚上":"away"},"traits":["老师信任","巡查"]},
+      {"npcId":"c_monitor","name":"班长","role":"学霸圈学生","x":140,"y":270,"emotion":"wary","schedule":{"早自习":"classroom","上午课":"classroom","眼保健操":"classroom","午休":"canteen","下午课":"classroom","放学后":"corridor","晚上":"away"},"traits":["老师眼线","会圆场"]},
+      {"npcId":"c_sports","name":"体育生阿彪","role":"混混圈学生","x":825,"y":280,"emotion":"cheerful","schedule":{"早自习":"classroom","上午课":"classroom","眼保健操":"corridor","午休":"playground","下午课":"classroom","放学后":"playground","晚上":"away"},"traits":["体力硬","讲义气"]},
+      {"npcId":"c_invisible","name":"透明人小何","role":"边缘圈学生","x":240,"y":400,"emotion":"bored","schedule":{"早自习":"classroom","上午课":"classroom","眼保健操":"toilet","午休":"corridor","下午课":"classroom","放学后":"canteen","晚上":"away"},"traits":["偷听","没人注意"]}
+    ]
+  },
+  {
+    "id": "corridor",
+    "name": "教学楼走廊",
+    "subtitle": "每扇门后面都有一节正在走神的课",
+    "bounds": {"width": 960, "height": 540},
+    "obstacles": [
+      {"id":"left-wall","x":0,"y":0,"width":42,"height":540,"label":"墙"},
+      {"id":"right-wall","x":918,"y":0,"width":42,"height":540,"label":"墙"},
+      {"id":"class-door-1","x":110,"y":56,"width":150,"height":55,"label":"一班门"},
+      {"id":"class-door-2","x":350,"y":56,"width":150,"height":55,"label":"二班门"},
+      {"id":"class-door-3","x":590,"y":56,"width":150,"height":55,"label":"三班门"},
+      {"id":"notice-board","x":110,"y":410,"width":300,"height":42,"label":"公告栏"}
+    ],
+    "props": [
+      {"id":"notice","kind":"notice","label":"月考公告","x":260,"y":430,"width":110,"height":36,"solid":false,"actionId":"read_notice"},
+      {"id":"bell","kind":"bell","label":"下课铃按钮","x":760,"y":420,"width":45,"height":45,"solid":false,"actionId":"listen_bell"},
+      {"id":"stairs","kind":"stairs","label":"楼梯","x":825,"y":115,"width":60,"height":260,"solid":false,"actionId":"change_location"}
+    ],
+    "npcs": [
+      {"npcId":"patrol_teacher","name":"教导主任","role":"巡逻老师","x":520,"y":245,"emotion":"wary","schedule":{"早自习":"corridor","上午课":"away","眼保健操":"corridor","午休":"corridor","下午课":"away","放学后":"corridor","晚上":"away"},"traits":["重点关注","会抓现行"]},
+      {"npcId":"c_gossip","name":"八卦姐","role":"边缘圈学生","x":210,"y":300,"emotion":"excited","schedule":{"早自习":"away","上午课":"away","眼保健操":"corridor","午休":"corridor","下午课":"away","放学后":"corridor","晚上":"away"},"traits":["情报多","嘴也快"]},
+      {"npcId":"c_transfer","name":"转学生林默","role":"神秘转学生","x":700,"y":300,"emotion":"tired","schedule":{"早自习":"classroom","上午课":"classroom","眼保健操":"corridor","午休":"corridor","下午课":"classroom","放学后":"rooftop","晚上":"away"},"traits":["秘密","信任战"]}
+    ]
+  },
+  {
+    "id": "canteen",
+    "name": "小卖部",
+    "subtitle": "辣条、AD钙奶和一本不该被看见的赊账本",
+    "bounds": {"width": 960, "height": 540},
+    "obstacles": [
+      {"id":"counter","x":360,"y":78,"width":460,"height":80,"label":"柜台"},
+      {"id":"shelf-a","x":100,"y":150,"width":150,"height":250,"label":"货架"},
+      {"id":"shelf-b","x":760,"y":185,"width":120,"height":215,"label":"货架"},
+      {"id":"fridge","x":300,"y":300,"width":90,"height":150,"label":"冰柜"}
+    ],
+    "props": [
+      {"id":"ledger","kind":"ledger","label":"赊账本","x":560,"y":115,"width":38,"height":26,"solid":false,"actionId":"inspect_ledger"},
+      {"id":"snack-rack","kind":"snack","label":"辣条货架","x":170,"y":245,"width":50,"height":50,"solid":false,"actionId":"buy_snack"},
+      {"id":"notice-canteen","kind":"notice","label":"小卖部传闻","x":430,"y":410,"width":120,"height":36,"solid":false,"actionId":"ask_shop_news"}
+    ],
+    "npcs": [
+      {"npcId":"shopkeeper","name":"老板娘","role":"小卖部老板","x":590,"y":190,"emotion":"cheerful","schedule":{"早自习":"away","上午课":"away","眼保健操":"canteen","午休":"canteen","下午课":"away","放学后":"canteen","晚上":"away"},"traits":["卖东西","消息灵通"]},
+      {"npcId":"c_rich","name":"富二代小梁","role":"文艺圈学生","x":290,"y":230,"emotion":"bored","schedule":{"早自习":"away","上午课":"away","眼保健操":"away","午休":"canteen","下午课":"away","放学后":"canteen","晚上":"away"},"traits":["有钱","辨真心"]},
+      {"npcId":"c_monitor_canteen","name":"班长","role":"学霸圈学生","x":700,"y":250,"emotion":"wary","schedule":{"早自习":"away","上午课":"away","眼保健操":"away","午休":"canteen","下午课":"away","放学后":"away","晚上":"away"},"traits":["查账","会圆场"]}
+    ]
+  },
+  {
+    "id": "playground",
+    "name": "操场",
+    "subtitle": "广播声盖不过篮球砸地的声音",
+    "bounds": {"width": 960, "height": 540},
+    "obstacles": [
+      {"id":"track-inner","x":190,"y":120,"width":580,"height":260,"label":"跑道内圈"},
+      {"id":"basket-hoop","x":75,"y":120,"width":95,"height":55,"label":"篮球架"},
+      {"id":"bleachers","x":730,"y":120,"width":160,"height":90,"label":"看台"},
+      {"id":"flag-stage","x":410,"y":40,"width":140,"height":50,"label":"升旗台"}
+    ],
+    "props": [
+      {"id":"basketball","kind":"ball","label":"篮球","x":130,"y":260,"width":36,"height":36,"solid":false,"actionId":"play_ball"},
+      {"id":"loudspeaker","kind":"speaker","label":"广播喇叭","x":830,"y":315,"width":45,"height":70,"solid":false,"actionId":"listen_broadcast"},
+      {"id":"water-fountain","kind":"fountain","label":"饮水机","x":70,"y":420,"width":70,"height":40,"solid":false,"actionId":"drink_water"}
+    ],
+    "npcs": [
+      {"npcId":"c_sports_playground","name":"体育生阿彪","role":"混混圈学生","x":260,"y":260,"emotion":"excited","schedule":{"早自习":"away","上午课":"away","眼保健操":"playground","午休":"playground","下午课":"away","放学后":"playground","晚上":"away"},"traits":["体力硬","打球"]},
+      {"npcId":"c_clown_playground","name":"小丑","role":"怪胎圈学生","x":680,"y":300,"emotion":"cheerful","schedule":{"早自习":"away","上午课":"away","眼保健操":"away","午休":"playground","下午课":"away","放学后":"playground","晚上":"away"},"traits":["搞笑","不被怀疑"]},
+      {"npcId":"c_invisible_playground","name":"透明人小何","role":"边缘圈学生","x":560,"y":420,"emotion":"bored","schedule":{"早自习":"away","上午课":"away","眼保健操":"away","午休":"corridor","下午课":"away","放学后":"playground","晚上":"away"},"traits":["偷听","观察"]}
+    ]
+  }
+]

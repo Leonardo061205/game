@@ -56,6 +56,21 @@ describe('EventEngine', () => {
     const state = run(); state.absoluteDay = 20; state.slotIndex = 0;
     expect(new EventEngine([]).select({ state, location: 'classroom' }).id).toBe('default_reflection');
   });
+
+  it('applies an interaction choice to run state and clears the active event', () => {
+    const state = run();
+    const engine = new EventEngine(events);
+    const event = engine.select({ state, location: 'classroom' });
+    state.currentEventId = event.id;
+    const beforeEnergy = state.stats.energy;
+    const result = engine.execute(event, 'keep_roll', state);
+    expect(result.choice.id).toBe('keep_roll');
+    expect(state.stats.energy).toBe(beforeEnergy);
+    expect(state.relationships.teacher).toBe(4);
+    expect(state.flags.d1_watchful).toBe(true);
+    expect(state.currentEventId).toBeUndefined();
+    expect(state.triggeredEvents).toContain(event.id);
+  });
 });
 
 describe('SaveSystem', () => {

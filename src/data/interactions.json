@@ -1,0 +1,36 @@
+[
+  {"npcId":"teacher","actions":[
+    {"id":"talk","label":"交谈","hint":"听听班主任今天盯上了谁。","effects":[{"relationship":{"characterId":"teacher","delta":3}},{"stat":{"morale":1}},{"log":"班主任说了句‘你们是我带过最差的一届’，但语气没那么重。"}],"resultText":"你从老师的停顿里听出一条巡查规律。","timeCost":true},
+    {"id":"ask_cover","label":"请求打掩护","hint":"需要老师信任标记。","condition":{"flag":{"key":"teacher_trust","equals":true}},"effects":[{"stat":{"suspicion":-6,"morale":3}},{"flag":{"key":"teacher_cover","value":true}},{"log":"班主任替你把名单往旁边一挪，像什么都没发生。"}],"resultText":"老师的信任像一把借来的伞。","timeCost":true},
+    {"id":"ask_news","label":"打听消息","hint":"获得关于检查的情报。","effects":[{"flag":{"key":"heard_teacher_plan","value":true}},{"stat":{"suspicion":2}},{"log":"你听见下午会突击检查后窗。"}],"resultText":"你知道了下一次脚步声会从哪里来。","timeCost":true}
+  ]},
+  {"npcId":"c_sports","actions":[
+    {"id":"talk","label":"交谈","hint":"体育生的消息通常从操场传来。","effects":[{"relationship":{"characterId":"c_sports","delta":4}},{"stat":{"morale":2}},{"log":"阿彪拍着篮球说，放学后后门的门卫会换班。"}],"resultText":"你们约好放学后在操场边碰头。","timeCost":true},
+    {"id":"activity","label":"一起活动","hint":"消耗体力，提升混混圈关系。","effects":[{"stat":{"energy":-8,"morale":7}},{"circle":{"id":"混混圈","delta":6}},{"relationship":{"characterId":"c_sports","delta":7}},{"flag":{"key":"sports_bond","value":true}},{"log":"你和阿彪在操场跑了两圈，谁也没提成绩。"}],"resultText":"你发现，讲义气有时比讲道理快。","timeCost":true},
+    {"id":"ask_news","label":"打听后门","hint":"提前知道门卫换班时间。","effects":[{"flag":{"key":"wall_plan","value":true}},{"stat":{"suspicion":4}},{"log":"阿彪把门卫的换班时间写在粉笔盒背面。"}],"resultText":"一条后门路线在你脑中成形。","timeCost":true}
+  ]},
+  {"npcId":"c_invisible","actions":[
+    {"id":"talk","label":"轻声聊天","hint":"透明人知道教室里没人注意的角落。","effects":[{"relationship":{"characterId":"c_invisible","delta":5}},{"stat":{"morale":2}},{"flag":{"key":"heard_quiet_corner","value":true}},{"log":"小何告诉你，最后一排的窗帘后面能听见办公室谈话。"}],"resultText":"你第一次认真记住了他的名字。","timeCost":true},
+    {"id":"ask_news","label":"交换情报","hint":"用一句观察换一条秘密。","effects":[{"secret":{"id":"quiet_corner_secret","action":"add"}},{"stat":{"suspicion":1}},{"log":"小何把一条没人想要的秘密塞进你的课本。"}],"resultText":"秘密并不总是响亮的。","timeCost":true}
+  ]},
+  {"npcId":"c_art","actions":[
+    {"id":"talk","label":"聊校服涂鸦","hint":"文艺委员对班级气氛很敏感。","effects":[{"relationship":{"characterId":"c_art","delta":5}},{"stat":{"morale":4}},{"log":"林墨在校服袖口画了一颗很小的星星。"}],"resultText":"她说，所有人都应该有一件不被老师收走的东西。","timeCost":true},
+    {"id":"ask_news","label":"打听同学关系","hint":"了解谁会在检查时帮你。","effects":[{"flag":{"key":"class_social_map","value":true}},{"circle":{"id":"文艺圈","delta":4}},{"log":"你把班里的小团体画成了一张关系图。"}],"resultText":"一张笑脸背后，通常还站着另一个人。","timeCost":true}
+  ]},
+  {"npcId":"shopkeeper","actions":[
+    {"id":"talk","label":"谈谈赊账本","hint":"老板娘见过的秘密比你多。","effects":[{"relationship":{"characterId":"shopkeeper","delta":3}},{"flag":{"key":"shopkeeper_tip","value":true}},{"log":"老板娘说，赊账本最后一页总有人撕。"}],"resultText":"她没有直接告诉你名字，只把账本往你这边推了推。","timeCost":true},
+    {"id":"buy","label":"买一包辣条","hint":"花 5 元，获得一点体力和一个可赠送物品。","condition":{"stat":{"key":"money","op":"gte","value":5}},"effects":[{"stat":{"money":-5,"energy":5,"morale":2}},{"item":{"id":"辣条","action":"add"}},{"log":"辣条的油纸在口袋里发出很轻的声音。"}],"resultText":"你买下辣条，也买下了一个可以交换的理由。","timeCost":true}
+  ]},
+  {"npcId":"patrol_teacher","actions":[
+    {"id":"talk","label":"装作路过","hint":"稳住表情，别让脚步出卖你。","effects":[{"relationship":{"characterId":"patrol_teacher","delta":2}},{"stat":{"suspicion":-2}},{"log":"巡逻老师瞥了你一眼，没发现你手里的纸条。"}],"resultText":"你把自己演成了一个普通学生。","timeCost":true},
+    {"id":"ask_news","label":"打听检查路线","hint":"可能提高怀疑，但能获得情报。","effects":[{"flag":{"key":"patrol_route","value":true}},{"stat":{"suspicion":4}},{"log":"你套出了主任下一次巡楼的方向。"}],"resultText":"知道路线的人，总要承担知道路线的风险。","timeCost":true}
+  ]},
+  {"npcId":"c_gossip","actions":[
+    {"id":"talk","label":"听八卦","hint":"小心，八卦也会记住听众。","effects":[{"relationship":{"characterId":"c_gossip","delta":5}},{"secret":{"id":"gossip_secret","action":"add"}},{"stat":{"morale":3}},{"log":"八卦姐压低声音，讲了一个关于月考答案的故事。"}],"resultText":"你听见了故事，也成了故事的一部分。","timeCost":true},
+    {"id":"ask_news","label":"交换情报","hint":"用一个小秘密换更大的线索。","effects":[{"flag":{"key":"heard_exam_rumor","value":true}},{"stat":{"suspicion":3}},{"log":"她把月考的传闻说完，提醒你别说是她讲的。"}],"resultText":"谣言像粉笔灰，拍掉一层还会有下一层。","timeCost":true}
+  ]},
+  {"npcId":"c_transfer","actions":[
+    {"id":"talk","label":"试探过去","hint":"转学生的信任不会凭空出现。","effects":[{"relationship":{"characterId":"c_transfer","delta":3}},{"flag":{"key":"transfer_contact","value":true}},{"log":"林默问你：‘你也觉得这里的墙会记事吗？’"}],"resultText":"他没有回答过去，只把问题还给了你。","timeCost":true},
+    {"id":"ask_news","label":"交换秘密","hint":"信息战从一条半真半假的消息开始。","effects":[{"secret":{"id":"transfer_hint","action":"add"}},{"flag":{"key":"transfer_secret","value":true}},{"stat":{"suspicion":4}},{"log":"你们互相交出一句真话，剩下的留给下一次。"}],"resultText":"你拿到的线索像一张缺角的照片。","timeCost":true}
+  ]}
+]

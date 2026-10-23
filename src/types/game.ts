@@ -1,7 +1,7 @@
 export const TIME_SLOTS = ['早自习', '上午课', '眼保健操', '午休', '下午课', '放学后', '晚上'] as const;
 export type TimeSlot = (typeof TIME_SLOTS)[number];
 export type Grade = '初一' | '初二' | '初三';
-export type LocationId = 'classroom' | 'corridor' | 'canteen' | 'rooftop' | 'toilet';
+export type LocationId = 'classroom' | 'corridor' | 'canteen' | 'playground' | 'rooftop' | 'toilet';
 export type CircleId = '学霸圈' | '混混圈' | '边缘圈' | '文艺圈' | '怪胎圈';
 export type Primitive = string | number | boolean;
 

@@ -54,7 +54,6 @@ export class GameState {
       messages.push(...dailyTick(state));
     }
     if (state.absoluteDay !== before) messages.push(`新的一天：第 ${state.absoluteDay} 天。`);
-    state.location = 'classroom';
     this.commit();
     return messages;
   }

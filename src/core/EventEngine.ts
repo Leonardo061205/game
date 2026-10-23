@@ -52,7 +52,7 @@ export class EventEngine {
 
   public selectForState(state: RunState, locations: string[]): GameEvent {
     const pools = locations.flatMap((location) => this.eligibleEvents({ state, location: location as EventContext['location'] }));
-    if (pools.length === 0) return FALLBACK_EVENT;
+    if (pools.length === 0) return { ...FALLBACK_EVENT, location: (locations[0] as GameEvent['location'] | undefined) ?? 'classroom' };
     const highest = Math.max(...pools.map((event) => event.priority));
     const priorityPool = pools.filter((event) => event.priority === highest);
     return this.rng.pickWeighted(priorityPool) ?? FALLBACK_EVENT;
