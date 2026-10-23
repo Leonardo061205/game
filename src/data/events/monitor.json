@@ -1,0 +1,871 @@
+[
+  {
+    "id": "monitor_day1_morning",
+    "title": "后窗的粉笔头",
+    "description": "班主任在后窗写评语，讲台上的粉笔盒离你只有三步。前排的班长（也是你）正在点名。",
+    "location": "classroom",
+    "timeSlots": [
+      "上午课"
+    ],
+    "characters": [
+      "c_monitor"
+    ],
+    "conditions": {
+      "all": [
+        {
+          "character": "c_monitor"
+        },
+        {
+          "day": {
+            "equals": 1
+          }
+        }
+      ]
+    },
+    "priority": 50,
+    "weight": 1,
+    "repeatPolicy": "once",
+    "choices": [
+      {
+        "id": "cover_throw",
+        "label": "借点名掩护，弹粉笔头",
+        "hint": "小风险：让后窗的同学笑一次。",
+        "effects": [
+          {
+            "stat": {
+              "suspicion": 8,
+              "energy": -4
+            }
+          },
+          {
+            "circle": {
+              "id": "学霸圈",
+              "delta": 3
+            }
+          },
+          {
+            "flag": {
+              "key": "d1_fountain",
+              "value": true
+            }
+          },
+          {
+            "log": "粉笔头擦着班主任耳边过去，班长迅速把名单翻到下一页。"
+          }
+        ],
+        "risk": {
+          "baseChance": 82,
+          "caughtChance": 10,
+          "successEffects": [
+            {
+              "stat": {
+                "morale": 5
+              }
+            }
+          ],
+          "failEffects": [
+            {
+              "stat": {
+                "suspicion": 4,
+                "morale": -2
+              }
+            }
+          ],
+          "caughtEffects": [
+            {
+              "stat": {
+                "suspicion": 15,
+                "morale": -8
+              }
+            }
+          ],
+          "successText": "全班憋笑，班主任只以为是窗外的鸟。",
+          "failText": "粉笔头撞在窗框，没砸中也没砸出威风。",
+          "caughtText": "班主任回头：‘班长，你也参与？’"
+        },
+        "resultText": "你把课堂变成了短暂的电影院。"
+      },
+      {
+        "id": "keep_roll",
+        "label": "认真点名，记下后窗动静",
+        "hint": "安全：获得情报，老师对你的信任增加。",
+        "effects": [
+          {
+            "stat": {
+              "morale": 2,
+              "suspicion": -3
+            }
+          },
+          {
+            "relationship": {
+              "characterId": "teacher",
+              "delta": 4
+            }
+          },
+          {
+            "flag": {
+              "key": "d1_watchful",
+              "value": true
+            }
+          },
+          {
+            "log": "你记住了后窗巡查的时间，班主任对你的认真点了点头。"
+          }
+        ],
+        "resultText": "你没有出手，但把巡查规律记进了脑子。"
+      }
+    ],
+    "tags": [
+      "phase1",
+      "classroom"
+    ]
+  },
+  {
+    "id": "monitor_day1_lunch",
+    "title": "小卖部的赊账本",
+    "description": "午休时，小卖部老板把一本皱巴巴的赊账本推到你面前：有人用班费买了三包辣条，还没签名。",
+    "location": "canteen",
+    "timeSlots": [
+      "午休"
+    ],
+    "characters": [
+      "c_monitor"
+    ],
+    "conditions": {
+      "all": [
+        {
+          "character": "c_monitor"
+        },
+        {
+          "day": {
+            "equals": 1
+          }
+        }
+      ]
+    },
+    "priority": 40,
+    "weight": 1,
+    "repeatPolicy": "once",
+    "choices": [
+      {
+        "id": "investigate_debt",
+        "label": "查字迹，找出赊账的人",
+        "hint": "调查会消耗精力，但能获得把柄。",
+        "effects": [
+          {
+            "stat": {
+              "energy": -8,
+              "suspicion": 3
+            }
+          },
+          {
+            "flag": {
+              "key": "ledger_secret",
+              "value": true
+            }
+          },
+          {
+            "item": {
+              "id": "ledger_clue",
+              "action": "add"
+            }
+          },
+          {
+            "log": "你在赊账本上发现一个熟悉的笔画，把柄暂时握在手里。"
+          }
+        ],
+        "resultText": "你认出那行潦草的字，却先把名字压回了心里。"
+      },
+      {
+        "id": "pay_quietly",
+        "label": "用自己的钱把账抹平",
+        "hint": "花钱换安静，班级账面会更干净。",
+        "effects": [
+          {
+            "stat": {
+              "money": -8,
+              "morale": -2,
+              "suspicion": -2
+            }
+          },
+          {
+            "flag": {
+              "key": "clean_ledger",
+              "value": true
+            }
+          },
+          {
+            "log": "老板把账本合上，决定暂时不找班主任。"
+          }
+        ],
+        "resultText": "你买下了安静，也买下了一个没人知道的下午。"
+      }
+    ],
+    "tags": [
+      "phase1",
+      "social"
+    ]
+  },
+  {
+    "id": "monitor_day1_evening",
+    "title": "班长的晚自习计划",
+    "description": "放学后的教室只剩一盏灯。班主任让你把值日表重抄一遍，后窗却传来密谋翻墙的声音。",
+    "location": "classroom",
+    "timeSlots": [
+      "放学后"
+    ],
+    "characters": [
+      "c_monitor"
+    ],
+    "conditions": {
+      "all": [
+        {
+          "character": "c_monitor"
+        },
+        {
+          "day": {
+            "equals": 1
+          }
+        }
+      ]
+    },
+    "priority": 30,
+    "weight": 1,
+    "repeatPolicy": "once",
+    "choices": [
+      {
+        "id": "join_plan",
+        "label": "把值日表藏起来，加入翻墙计划",
+        "hint": "高风险：前期投入会在第三天回响。",
+        "effects": [
+          {
+            "stat": {
+              "energy": -7,
+              "suspicion": 12,
+              "morale": 8
+            }
+          },
+          {
+            "flag": {
+              "key": "wall_plan",
+              "value": true
+            }
+          },
+          {
+            "circle": {
+              "id": "边缘圈",
+              "delta": 6
+            }
+          },
+          {
+            "log": "你把值日表塞进抽屉，记住了翻墙小队的集合时间。"
+          }
+        ],
+        "risk": {
+          "baseChance": 72,
+          "caughtChance": 18,
+          "caughtEffects": [
+            {
+              "stat": {
+                "suspicion": 12,
+                "morale": -6
+              }
+            }
+          ],
+          "caughtText": "班主任提前回来，值日表正好从抽屉里滑出来。",
+          "successText": "你听懂了集合暗号，没人发现班长也在队伍里。"
+        },
+        "resultText": "你第一次决定，老师的信任也可以成为掩护。"
+      },
+      {
+        "id": "write_roster",
+        "label": "重抄值日表，顺手提醒大家别冲动",
+        "hint": "稳妥：提升老师信任，降低明天的怀疑。",
+        "effects": [
+          {
+            "stat": {
+              "energy": -4,
+              "suspicion": -5,
+              "morale": -2
+            }
+          },
+          {
+            "relationship": {
+              "characterId": "teacher",
+              "delta": 6
+            }
+          },
+          {
+            "flag": {
+              "key": "teacher_trust",
+              "value": true
+            }
+          },
+          {
+            "log": "值日表按时贴上墙，班主任说：‘还是你靠谱。’"
+          }
+        ],
+        "resultText": "你把声音压低，像是在劝别人，也像是在劝自己。"
+      }
+    ],
+    "tags": [
+      "phase1",
+      "night"
+    ]
+  },
+  {
+    "id": "monitor_day2_morning",
+    "title": "老师的钥匙串",
+    "description": "第二天早自习，班主任把办公室钥匙交给你。与此同时，昨天的赊账本或翻墙暗号，都在抽屉边缘发烫。",
+    "location": "classroom",
+    "timeSlots": [
+      "早自习"
+    ],
+    "characters": [
+      "c_monitor"
+    ],
+    "conditions": {
+      "all": [
+        {
+          "character": "c_monitor"
+        },
+        {
+          "day": {
+            "equals": 2
+          }
+        }
+      ]
+    },
+    "priority": 50,
+    "weight": 1,
+    "repeatPolicy": "once",
+    "choices": [
+      {
+        "id": "check_office",
+        "label": "借送作业之名，查办公室公告",
+        "hint": "线索越多，越可能留下脚印。",
+        "effects": [
+          {
+            "stat": {
+              "energy": -6,
+              "suspicion": 9,
+              "morale": 5
+            }
+          },
+          {
+            "flag": {
+              "key": "office_clue",
+              "value": true
+            }
+          },
+          {
+            "item": {
+              "id": "office_note",
+              "action": "add"
+            }
+          },
+          {
+            "log": "公告栏背面有一张被撕掉半角的考试安排。"
+          }
+        ],
+        "resultText": "你把钥匙转了一圈，记住了办公室里不该看见的东西。"
+      },
+      {
+        "id": "return_keys",
+        "label": "按时归还钥匙，观察谁在等你",
+        "hint": "低风险：信任会在第三天变成掩护。",
+        "effects": [
+          {
+            "stat": {
+              "suspicion": -4,
+              "morale": 3
+            }
+          },
+          {
+            "relationship": {
+              "characterId": "teacher",
+              "delta": 5
+            }
+          },
+          {
+            "flag": {
+              "key": "keys_returned",
+              "value": true
+            }
+          },
+          {
+            "log": "你按时归还钥匙，班主任的目光在你脸上停了一秒。"
+          }
+        ],
+        "resultText": "可靠是一种资源，你决定先把它存起来。"
+      }
+    ],
+    "tags": [
+      "phase1",
+      "day2"
+    ]
+  },
+  {
+    "id": "monitor_day2_lunch",
+    "title": "操场边的纸条",
+    "description": "操场看台下有一张写着‘别让班主任看见’的纸条。它可能和赊账本有关，也可能是翻墙小队在试探你。",
+    "location": "corridor",
+    "timeSlots": [
+      "午休"
+    ],
+    "characters": [
+      "c_monitor"
+    ],
+    "conditions": {
+      "all": [
+        {
+          "character": "c_monitor"
+        },
+        {
+          "day": {
+            "equals": 2
+          }
+        }
+      ]
+    },
+    "priority": 40,
+    "weight": 1,
+    "repeatPolicy": "once",
+    "choices": [
+      {
+        "id": "keep_note",
+        "label": "收下纸条，约对方放学见",
+        "hint": "掌握主动权，但怀疑值会上升。",
+        "effects": [
+          {
+            "stat": {
+              "suspicion": 8,
+              "energy": -4,
+              "morale": 6
+            }
+          },
+          {
+            "flag": {
+              "key": "note_meet",
+              "value": true
+            }
+          },
+          {
+            "secret": {
+              "id": "note_secret",
+              "action": "add"
+            }
+          },
+          {
+            "log": "纸条被你折成四方，塞进班长袖口。"
+          }
+        ],
+        "resultText": "你决定让秘密自己走到灯光里。"
+      },
+      {
+        "id": "leave_note",
+        "label": "把纸条交给老师",
+        "hint": "安全而残酷：老师信任上升，某个同学会记住你。",
+        "effects": [
+          {
+            "stat": {
+              "suspicion": -4,
+              "morale": -7
+            }
+          },
+          {
+            "relationship": {
+              "characterId": "teacher",
+              "delta": 8
+            }
+          },
+          {
+            "flag": {
+              "key": "reported_note",
+              "value": true
+            }
+          },
+          {
+            "log": "班主任接过纸条，没有问你从哪里捡到的。"
+          }
+        ],
+        "resultText": "你把纸条推回老师手里，教室里少了一点声音。"
+      }
+    ],
+    "tags": [
+      "phase1",
+      "clue"
+    ]
+  },
+  {
+    "id": "monitor_day2_evening",
+    "title": "天台的集合",
+    "description": "放学后，翻墙小队在天台下等你。你知道班长的身份能让他们安心，也能让班主任更容易相信你。",
+    "location": "rooftop",
+    "timeSlots": [
+      "放学后"
+    ],
+    "characters": [
+      "c_monitor"
+    ],
+    "conditions": {
+      "all": [
+        {
+          "character": "c_monitor"
+        },
+        {
+          "day": {
+            "equals": 2
+          }
+        }
+      ]
+    },
+    "priority": 30,
+    "weight": 1,
+    "repeatPolicy": "once",
+    "choices": [
+      {
+        "id": "lead_escape",
+        "label": "带队绕开门卫，去看一眼校外霓虹",
+        "hint": "会消耗体力，但翻墙计划可能在第三天救你。",
+        "effects": [
+          {
+            "stat": {
+              "energy": -12,
+              "suspicion": 15,
+              "morale": 10
+            }
+          },
+          {
+            "flag": {
+              "key": "escape_leader",
+              "value": true
+            }
+          },
+          {
+            "circle": {
+              "id": "边缘圈",
+              "delta": 8
+            }
+          },
+          {
+            "log": "你记住了门卫换班的空隙，也记住了大家看你的眼神。"
+          }
+        ],
+        "risk": {
+          "baseChance": 65,
+          "caughtChance": 25,
+          "caughtEffects": [
+            {
+              "stat": {
+                "suspicion": 18,
+                "morale": -10
+              }
+            }
+          ],
+          "caughtText": "手电光扫过来，翻墙的计划只剩一声急刹。",
+          "successText": "你们贴着围墙溜出去，三分钟后又像什么都没发生过。"
+        },
+        "resultText": "你选择成为带头的人，代价是所有人都记住了你。"
+      },
+      {
+        "id": "stay_guard",
+        "label": "留在天台望风，劝大家回去",
+        "hint": "保住老师信任，为第三天留下退路。",
+        "effects": [
+          {
+            "stat": {
+              "energy": -5,
+              "suspicion": -3,
+              "morale": -3
+            }
+          },
+          {
+            "flag": {
+              "key": "escape_stopped",
+              "value": true
+            }
+          },
+          {
+            "relationship": {
+              "characterId": "teacher",
+              "delta": 3
+            }
+          },
+          {
+            "log": "你吹响口哨让大家散开，门卫没有发现任何人。"
+          }
+        ],
+        "resultText": "你守住了退路，却也让某些人觉得你太像班长。"
+      }
+    ],
+    "tags": [
+      "phase1",
+      "climax_setup"
+    ]
+  },
+  {
+    "id": "monitor_day3_prep",
+    "title": "广播前的空白",
+    "description": "第三天早自习，广播还没有响。你可以把昨天留下的纸条收好，也可以先把名单和座位重新核一遍。",
+    "location": "classroom",
+    "timeSlots": [
+      "早自习"
+    ],
+    "characters": [
+      "c_monitor"
+    ],
+    "conditions": {
+      "all": [
+        {
+          "character": "c_monitor"
+        },
+        {
+          "day": {
+            "equals": 3
+          }
+        }
+      ]
+    },
+    "priority": 60,
+    "weight": 1,
+    "repeatPolicy": "once",
+    "choices": [
+      {
+        "id": "prep_roster",
+        "label": "重排名单，给可能被点名的人留空位",
+        "hint": "降低一点风险，下午的检查会更可控。",
+        "effects": [
+          {
+            "stat": {
+              "suspicion": -5,
+              "energy": -3
+            }
+          },
+          {
+            "flag": {
+              "key": "d3_roster_ready",
+              "value": true
+            }
+          },
+          {
+            "log": "你把名单重排一遍，给所有人留下了一个体面的空位。"
+          }
+        ],
+        "resultText": "你先做了一件班长该做的事：让人不至于立刻掉下去。"
+      },
+      {
+        "id": "prep_hide_clue",
+        "label": "把昨天的线索藏进广播室旁的纸箱",
+        "hint": "留下一个秘密，下午可以反过来利用。",
+        "effects": [
+          {
+            "stat": {
+              "suspicion": 6,
+              "morale": 5,
+              "energy": -2
+            }
+          },
+          {
+            "flag": {
+              "key": "d3_hidden_clue",
+              "value": true
+            }
+          },
+          {
+            "log": "纸箱盖回去的时候，你听见广播线路里传来滋滋声。"
+          }
+        ],
+        "resultText": "你把秘密藏好，等着它在最吵的时候开口。"
+      }
+    ],
+    "tags": [
+      "phase1",
+      "day3",
+      "setup"
+    ]
+  },
+  {
+    "id": "monitor_day3_morning",
+    "title": "第三天的广播",
+    "description": "广播通知：今天检查班级纪律。班主任把所有人的目光都交给了你——昨天留下的线索，会决定你怎么开口。",
+    "location": "classroom",
+    "timeSlots": [
+      "上午课"
+    ],
+    "characters": [
+      "c_monitor"
+    ],
+    "conditions": {
+      "all": [
+        {
+          "character": "c_monitor"
+        },
+        {
+          "day": {
+            "equals": 3
+          }
+        }
+      ]
+    },
+    "priority": 90,
+    "weight": 1,
+    "repeatPolicy": "once",
+    "choices": [
+      {
+        "id": "climax_cover",
+        "label": "用老师的信任替大家挡一次",
+        "condition": {
+          "any": [
+            {
+              "flag": {
+                "key": "keys_returned",
+                "equals": true
+              }
+            },
+            {
+              "flag": {
+                "key": "teacher_trust",
+                "equals": true
+              }
+            }
+          ]
+        },
+        "hint": "需要 keys_returned 或 teacher_trust；稳住全班。",
+        "effects": [
+          {
+            "stat": {
+              "morale": 12,
+              "suspicion": -8
+            }
+          },
+          {
+            "flag": {
+              "key": "climax_cover",
+              "value": true
+            }
+          },
+          {
+            "relationship": {
+              "characterId": "teacher",
+              "delta": -4
+            }
+          },
+          {
+            "log": "你把检查表写成‘全员自律’，班主任看出你在说谎，却没有当场拆穿。"
+          }
+        ],
+        "resultText": "班级暂时安全。你知道这份信任从今天起有了裂缝。"
+      },
+      {
+        "id": "climax_expose",
+        "label": "把翻墙小队和赊账本一起摊开",
+        "condition": {
+          "any": [
+            {
+              "flag": {
+                "key": "ledger_secret",
+                "equals": true
+              }
+            },
+            {
+              "flag": {
+                "key": "office_clue",
+                "equals": true
+              }
+            }
+          ]
+        },
+        "hint": "需要 ledger_secret 或 office_clue；真相会换来新的敌意。",
+        "effects": [
+          {
+            "stat": {
+              "suspicion": -12,
+              "morale": -15
+            }
+          },
+          {
+            "flag": {
+              "key": "climax_expose",
+              "value": true
+            }
+          },
+          {
+            "relationship": {
+              "characterId": "teacher",
+              "delta": 10
+            }
+          },
+          {
+            "log": "名字一个个写在黑板上，教室安静得像没有下课。"
+          }
+        ],
+        "resultText": "你把秘密变成证据，老师满意了，但同学不会忘。"
+      },
+      {
+        "id": "climax_escape",
+        "label": "带大家从后门溜走，去看最后一场球",
+        "condition": {
+          "any": [
+            {
+              "flag": {
+                "key": "wall_plan",
+                "equals": true
+              }
+            },
+            {
+              "flag": {
+                "key": "escape_leader",
+                "equals": true
+              }
+            }
+          ]
+        },
+        "hint": "需要 wall_plan 或 escape_leader；最冒险的答案。",
+        "effects": [
+          {
+            "stat": {
+              "energy": -15,
+              "suspicion": 20,
+              "morale": 18
+            }
+          },
+          {
+            "flag": {
+              "key": "climax_escape",
+              "value": true
+            }
+          },
+          {
+            "circle": {
+              "id": "边缘圈",
+              "delta": 12
+            }
+          },
+          {
+            "log": "铃声响起，你带着全班从后门散开，操场上只剩广播在喊。"
+          }
+        ],
+        "risk": {
+          "baseChance": 58,
+          "caughtChance": 30,
+          "caughtEffects": [
+            {
+              "stat": {
+                "suspicion": 25,
+                "morale": -15
+              }
+            }
+          ],
+          "caughtText": "主任堵在楼梯口，‘班长’两个字第一次像处分。",
+          "successText": "你们在球场边笑到喘不过气，三天里第一次没人叫你班长。"
+        },
+        "resultText": "你把班长证塞进口袋，短暂做了一次真正的学生。"
+      }
+    ],
+    "tags": [
+      "phase1",
+      "climax"
+    ]
+  }
+]

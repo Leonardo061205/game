@@ -1,0 +1,25 @@
+{
+  "name": "campus-trouble-rpg",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc --noEmit && vite build",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:e2e": "playwright test",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "phaser": "^3.90.0"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.62.0",
+    "@types/node": "^22.15.0",
+    "typescript": "^5.8.3",
+    "vite": "^7.1.7",
+    "vitest": "^3.2.4"
+  }
+}

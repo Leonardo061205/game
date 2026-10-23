@@ -1,0 +1,7 @@
+[
+  {"id":"c_monitor","name":"班长","circle":"学霸圈","difficulty":1,"energy":60,"morale":70,"suspicion":10,"money":20,"description":"老师眼里的可靠人，课桌底下也藏着没交的检讨。"},
+  {"id":"c_sports","name":"体育生","circle":"混混圈","difficulty":1,"energy":90,"morale":60,"suspicion":20,"money":10,"description":"体力硬，脑子转得慢，但跑得比广播快。"},
+  {"id":"c_invisible","name":"透明人","circle":"边缘圈","difficulty":1,"energy":50,"morale":60,"suspicion":5,"money":15,"description":"老师点名常常跳过你，正好听见所有秘密。"},
+  {"id":"c_art","name":"文艺女神","circle":"文艺圈","difficulty":1,"energy":55,"morale":75,"suspicion":15,"money":30,"description":"人缘像滤镜，裂缝也会被看见。"},
+  {"id":"c_clown","name":"小丑","circle":"怪胎圈","difficulty":1,"energy":60,"morale":65,"suspicion":15,"money":10,"description":"大家笑你，所以没人注意你什么时候动手。"}
+]
